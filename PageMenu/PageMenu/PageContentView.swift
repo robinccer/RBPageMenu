@@ -53,7 +53,7 @@ class PageContentView: UIView {
         setUpUI()
         
     }
-    
+    //通过文件的初始化方法
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
