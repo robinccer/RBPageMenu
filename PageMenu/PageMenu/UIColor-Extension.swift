@@ -1,5 +1,5 @@
 //
-//  PageTitleView.swift
+//  UIColor-Extension.swift
 //  PageMenu
 //
 //  Created by zhongbin on 17/1/28.
