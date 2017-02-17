@@ -21,6 +21,8 @@ class PageContentView: UIView {
     fileprivate weak var parentVc : UIViewController?
     fileprivate var startOffsetX : CGFloat = 0
     
+    fileprivate var isByScroll : Bool = true
+    
     weak var delegate: PageContentViewDelegate?
     
     //初始化 collectionView
@@ -94,10 +96,16 @@ extension PageContentView:UICollectionViewDelegate {
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         
+        isByScroll = true
         startOffsetX = scrollView.contentOffset.x;
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        
+        if !isByScroll {
+            return
+        }
         
         // 1.定义需要获取到的数据
         var progress : CGFloat = 0;
@@ -147,8 +155,9 @@ extension PageContentView {
 
     func setCurrentIndex(currentIndex: Int)  {
         
+        isByScroll = false
         let offsetX = (CGFloat)(currentIndex) * collectionView.frame.size.width
-        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: true)
+        collectionView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: false)
         
     }
 

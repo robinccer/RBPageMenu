@@ -136,6 +136,8 @@ extension PageTitleView {
             return
         }
         
+        scrollViewline.center.x = currentlabel.center.x
+        
         beforelabel.textColor = UIColor(r: kNormalColor.0, g: kNormalColor.1, b: kNormalColor.2)
         currentlabel.textColor = UIColor(r: kSelectColor.0, g: kSelectColor.1, b: kSelectColor.2)
   
